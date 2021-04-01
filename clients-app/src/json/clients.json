@@ -1,0 +1,20 @@
+{
+   "clients":[
+      {
+         "id": 1,
+         "firstName": "John",
+         "lastName": "Doe"
+
+      },
+      {
+         "id": 2,
+         "firstName": "Jack",
+         "lastName": "Black"
+      },
+      {
+         "id": 3,
+         "firstName": "Fredrik",
+         "lastName": "Thordendal"
+      }
+   ]
+}

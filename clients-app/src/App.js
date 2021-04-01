@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className="App">
         <Container fixed>
-          <h1>Clients App UI</h1>
+          <h1>Clients App</h1>
           <List component="nav">
             {clientsListItems}
           </List>

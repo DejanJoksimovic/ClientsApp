@@ -14,8 +14,6 @@ class App extends Component {
     clients: data
   }
 
-
-
   render() {    
     const clients = [...this.state.clients.clients];
     let clientsListItems = '';

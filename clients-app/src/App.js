@@ -6,14 +6,23 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import SearchBox from './ui-elements/SearchBox';
 import data from './json/clients.json';
+import LoadingScreen from './LoadingScreen';
 
 // import axios from 'axios';
 
 class App extends Component {
   state = {
-    clients: data.clients, // changed
+    clients: null, // changed
     searchInput: '',
   }
+
+componentDidMount() {
+  fetch('http://localhost:3000/')
+  .then(res => res.json())
+  .then(data => this.setState({clients: data.clients}))
+  .catch(e => console.log(e));
+
+}
 
   onInputChange = event => {
     const {name, value} = event.target;
@@ -33,7 +42,7 @@ class App extends Component {
       })
     }
   
-    return (
+    return clients ? (
       <div className="App">
         <Container fixed>
           <h1>Clients App</h1>
@@ -45,7 +54,9 @@ class App extends Component {
           </List>
         </Container>
       </div>
-    );
+    )
+    :
+    <LoadingScreen />
   }  
 }
 

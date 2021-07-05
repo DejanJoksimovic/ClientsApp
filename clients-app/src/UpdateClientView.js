@@ -1,11 +1,11 @@
 
 import React, {useState} from 'react';
-import './AddClientView.css';
+import './UpdateClientView.css';
 
 // company, first name, last name, phone
-const AddClientView = ({setIsOpen, setShouldRefresh}) => {
+const UpdateClientView = ({setIsOpen, editClient, setShouldRefresh}) => {
 
-    const [client, setClient] = useState({firstName: '', lastName:'', company: '', phone: ''});
+    const [client, setClient] = useState({...editClient});
 
     const handleInputChange = (e) => {
         const {name, value} = e.target;
@@ -18,8 +18,8 @@ const AddClientView = ({setIsOpen, setShouldRefresh}) => {
     }
 
     const fetchRequest = async (client) => {
-       await fetch('http://localhost:3000/client', {
-            method: 'POST',
+        await fetch('http://localhost:3000/client', {
+            method: 'PUT',
             body: JSON.stringify(client),
             headers: {'Content-Type': 'application/json'},
 
@@ -28,11 +28,9 @@ const AddClientView = ({setIsOpen, setShouldRefresh}) => {
         setShouldRefresh(true);
     }
 
-
-
     return (
-        <div className="add-client-view">
-            <div className="add-client-view__content">
+        <div className="update-client-view">
+            <div className="update-client-view__content">
                 <div class="input-group">
                 <label>Name: </label>
                 <input type="text" onChange={handleInputChange} value={client.firstName} name='firstName'></input>
@@ -49,7 +47,7 @@ const AddClientView = ({setIsOpen, setShouldRefresh}) => {
                 <label>Phone: </label>
                 <input type='tel' onChange={handleInputChange} value={client.phone} name='phone'></input>
                 </div>
-                <button onClick={() => fetchRequest(client)}>Create client</button>
+                <button onClick={() => fetchRequest(client)}>Update client</button>
             <button onClick={() => setIsOpen(false)}>Cancel</button>
             </div>
         </div>
@@ -58,4 +56,4 @@ const AddClientView = ({setIsOpen, setShouldRefresh}) => {
 }
 
 
-export default AddClientView;
+export default UpdateClientView;

@@ -34,22 +34,22 @@ const AddClientView = ({setIsOpen, setShouldRefresh}) => {
         <div className="add-client-view">
             <div className="add-client-view__content">
                 <div class="input-group">
-                <label>Name: </label>
-                <input type="text" onChange={handleInputChange} value={client.firstName} name='firstName'></input>
+                    <label>Name: </label>
+                    <input type="text" onChange={handleInputChange} value={client.firstName} name='firstName'></input>
                 </div>
                 <div class="input-group">
-                <label>Last name: </label>
-                <input type="text" onChange={handleInputChange} value={client.lastName} name='lastName'></input>
+                    <label>Last name: </label>
+                    <input type="text" onChange={handleInputChange} value={client.lastName} name='lastName'></input>
                 </div>
                 <div class="input-group">
-                <label>Company: </label>
-                <input type="text" onChange={handleInputChange} value={client.company} name='company'></input>
+                    <label>Company: </label>
+                    <input type="text" onChange={handleInputChange} value={client.company} name='company'></input>
                 </div>
                 <div class="input-group">
-                <label>Phone: </label>
-                <input type='tel' onChange={handleInputChange} value={client.phone} name='phone'></input>
+                    <label>Phone: </label>
+                    <input type='tel' onChange={handleInputChange} value={client.phone} name='phone'></input>
                 </div>
-                <button onClick={() => fetchRequest(client)}>Create client</button>
+            <button onClick={() => fetchRequest(client)}>Create client</button>
             <button onClick={() => setIsOpen(false)}>Cancel</button>
             </div>
         </div>

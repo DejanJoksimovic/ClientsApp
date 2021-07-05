@@ -31,19 +31,19 @@ const UpdateClientView = ({setIsOpen, editClient, setShouldRefresh}) => {
     return (
         <div className="update-client-view">
             <div className="update-client-view__content">
-                <div class="input-group">
+                <div className="input-group">
                 <label>Name: </label>
                 <input type="text" onChange={handleInputChange} value={client.firstName} name='firstName'></input>
                 </div>
-                <div class="input-group">
+                <div className="input-group">
                 <label>Last name: </label>
                 <input type="text" onChange={handleInputChange} value={client.lastName} name='lastName'></input>
                 </div>
-                <div class="input-group">
+                <div className="input-group">
                 <label>Company: </label>
                 <input type="text" onChange={handleInputChange} value={client.company} name='company'></input>
                 </div>
-                <div class="input-group">
+                <div className="input-group">
                 <label>Phone: </label>
                 <input type='tel' onChange={handleInputChange} value={client.phone} name='phone'></input>
                 </div>

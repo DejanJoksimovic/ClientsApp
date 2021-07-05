@@ -7,6 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import SearchBox from './ui-elements/SearchBox';
 import data from './json/clients.json';
 import LoadingScreen from './LoadingScreen';
+import AddClientView from './AddClientView';
 
 // import axios from 'axios';
 
@@ -14,6 +15,7 @@ class App extends Component {
   state = {
     clients: null, // changed
     searchInput: '',
+    isOpen: '',
   }
 
 componentDidMount() {
@@ -27,6 +29,10 @@ componentDidMount() {
   onInputChange = event => {
     const {name, value} = event.target;
     this.setState({[name]: value});
+  }
+
+  setIsOpen = (isOpen) => {
+    this.setState({isOpen})
   }
 
   render() {    
@@ -49,10 +55,13 @@ componentDidMount() {
           <div style={{width: '300px', margin: '0 auto'}}>
           <SearchBox placeholder={'search'} value={searchInput} onChange={this.onInputChange}></SearchBox>
           </div>
+          <div onClick={() => this.setIsOpen(true)}>ADD CLIENT</div>
           <List component="nav">
             {clientsListItems}
           </List>
+        
         </Container>
+        {this.state.isOpen && <AddClientView setIsOpen={this.setIsOpen}/> }
       </div>
     )
     :
